@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Stream</title>
+    <style>
+        #video {
+            width: 640px;
+            height: 480px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Video Stream</h1>
+    <img id="video" src="" alt="Video stream will appear here">
+    <script>
+        const img = document.getElementById('video');
+        img.src = 'data:image/jpeg;base64,' + '{{frame}}';
+    </script>
+</body>
+</html>

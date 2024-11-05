@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Stream</title>
+    <style>
+        #video {
+            width: 640px;
+            height: 480px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Video Stream</h1>
+    <img id="video" src="" alt="Video stream will appear here">
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:5000');
+
+        socket.on('video_frame', function(frame) {
+            const img = document.getElementById('video');
+            img.src = 'data:image/jpeg;base64,' + frame.data;
+        });
+    </script>
+</body>
+</html>
